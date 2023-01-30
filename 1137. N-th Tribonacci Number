@@ -1,0 +1,15 @@
+class Solution {
+    public int tribonacci(int n) {
+        int[] n_arr = new int[38];
+        n_arr[0] = 0;
+        n_arr[1] = 1;
+        n_arr[2] = 1;
+        if(n<3) return n_arr[n]; 
+        int i=3;
+        while(i<=n){
+            n_arr[i] = n_arr[i-1]+n_arr[i-2]+n_arr[i-3];
+            i++;
+        } 
+        return n_arr[n];
+    }
+}
