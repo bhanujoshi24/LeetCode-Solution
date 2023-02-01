@@ -1,0 +1,22 @@
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+        String x="",ans="";
+        for(char c: str1.toCharArray()){
+            x+=c;
+            if(str1.length()%x.length() == 0 && str2.length()%x.length()==0){
+                if(str1.equals(getConcatenate (x, str1.length()/x.length())) && str2.equals(getConcatenate(x, str2.length()/x.length()))){
+                    ans = x;
+                }
+            }
+        }
+        return ans;
+    }
+    public String getConcatenate(String x, int n){
+        String ans="";
+        while(n-->0){
+            ans+=x;
+        }
+        return ans;
+    }
+
+}
