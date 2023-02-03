@@ -1,0 +1,17 @@
+class Solution {
+    public String convert(String s, int numRows) {
+        if(numRows == 1)    return s;
+        char s_arr[] = s.toCharArray();
+        String ans="";
+        int j;
+        for(int i=0;i<numRows; i++){
+            int increment  = (numRows-1)*2;
+            for(j = i;j<s.length() ;j=j+increment){
+                ans+=s_arr[j];
+                if(i > 0 && i<numRows-1 && (j+increment - 2*i) < s.length())
+                    ans+=s_arr[j+(increment - 2*i)];
+            }
+        }
+        return ans;
+    }
+}
