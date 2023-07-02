@@ -8,7 +8,9 @@ public class KadaneAlgorithm {
 		// Brute Force Approach
 		System.out.println("Brute Force Approach = "+getMaxSumBrute(arr));
 		// Optimal Approach
-		System.out.println("Optimal Approach="+getMaxOptimal(arr));
+		System.out.println("Better Approach = "+getMaxSumBetter(arr));
+		// Optimal Approach
+		System.out.println("Optimal Approach = "+getMaxOptimal(arr));
 	}
 
 	public static int getMaxOptimal(int[] arr) {
@@ -38,4 +40,16 @@ public class KadaneAlgorithm {
 		return max_sum;
 	}
 
+	public static int getMaxSumBetter(int[] arr) {
+		int max_sum = 0, sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum = 0;
+			for (int j = i; j < arr.length; j++) {
+				sum+=arr[j];
+				max_sum = Math.max(max_sum, sum);
+			}
+		}
+		return max_sum;
+	}
+	
 }
