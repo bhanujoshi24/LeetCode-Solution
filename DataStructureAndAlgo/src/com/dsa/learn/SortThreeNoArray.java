@@ -7,10 +7,38 @@ public class SortThreeNoArray {
 		int[] arr = { 0, 1, 2, 2, 1, 2, 0, 0, 1 };
 		int n = arr.length;
 //		better Approach
-		sortBetterApproach(arr);
-		for(int ele: arr) {
-			System.out.print(ele+" ");
+//		sortBetterApproach(arr);
+		for (int ele : arr) {
+			System.out.print(ele + " ");
 		}
+//		Dutch Algorithm
+		System.out.println("Sorted Array");
+		sortDutchAlgo(arr);
+		for (int ele : arr) {
+			System.out.print(ele + " ");
+		}
+	}
+
+	public static void sortDutchAlgo(int[] arr) {
+		int low = 0, high = arr.length-1, mid = 0;
+		while (mid<=high) {
+			if (arr[mid] == 0) {
+				swap(arr, mid, low);
+				mid++;
+				low++;
+			} else if (arr[mid] == 2) {
+				swap(arr, mid, high);
+				high--;
+			} else {
+				mid++;
+			}
+		}
+	}
+
+	public static void swap(int[] arr, int x, int y) {
+		int temp = arr[x];
+		arr[x] = arr[y];
+		arr[y] = temp;
 	}
 
 	public static void sortBetterApproach(int[] arr) {
